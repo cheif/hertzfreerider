@@ -1,0 +1,8 @@
+{
+  "loadEagerly": [
+    "app/**/*.js"
+  ],
+  "plugins": {
+    "node": {}
+  }
+}

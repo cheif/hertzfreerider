@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+html, body {
+  height: 100%;
+  margin: 0;
+}
+#map {
+  height: 100%;
+}
+
+#content {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  bottom: 120px;
+  background-color: rgba(255,255,255,0.7);
+  border-radius: 5px;
+  padding: 5px;
+  z-index: 99;
+  overflow-y: scroll;
+  font-size: 12px;
+}
+
+#content span {
+  float: right;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+h4 {
+  font-style: bold;
+  font-size: 14px;
+  margin: 0px;
+}
+
+.trip {
+  margin-top: 5px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.trip > div {
+  float: left;
+}
+
+.trip .noRides {
+  margin-right: 10px;
+  margin-top: 5px;
+  border-radius: 50%;
+  background-color: green;
+  width: 15px;
+  height: 15px;
+  padding: 3px;
+  text-align: center;
+}
+
+.trip .info {
+  width: 90%;
+}
+
+.trip.highlighted {
+  background-color: lightgrey;
+}
+
+.trip:first-child {
+  margin-top: 0px;
+}
+    </style>
+  </head>
+  <body>
+    <div id='content'></div>
+    <div id='map'></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.0/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.0/react-dom.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCI_zButnYg1jAyUqIQNN5ijMTtRRJSoD0&libraries=geometry"></script>
+    <script src='index.js'></script>
+  </body>
+</html>
