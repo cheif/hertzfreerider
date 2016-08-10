@@ -33,7 +33,7 @@ app.get('/trips', (req, res) => {
           return trips.concat(Object.assign({}, trip, {count: 1}))
         }, [])
         .sort((a, b) => getNorthMost(b) - getNorthMost(a)))
-  })
+  }, err => res.status(500).send(err))
 })
 
 app.listen('8080')

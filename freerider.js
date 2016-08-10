@@ -37,20 +37,23 @@ const _getTripsFromWeb = () => {
         })
 
         return Promise.all(trips.map(trip => {
-          return new Promise((resolve, reject) => {
+          return new Promise(resolve => {
             maps.directions({
               origin: trip.from,
               destination: trip.to,
             }, (err, res) => {
-              if (res.status !== 'OK') {
-                return reject(res.status)
+              if (res.status === 'OK') {
+                trip.directions = res
+              } else {
+                // Don't handle that some trips don't have directions right
+                // now, just log it
+                console.error('Could not fetch directions for trip:', trip, ', google response:', res) // eslint-disable-line
               }
-              trip.directions = res
               resolve(trip)
             })
             return
           })
-        })).then(resolve, reject)
+        })).then(trips => resolve(trips.filter(t => t.directions)), reject)
       })
   })
 }
